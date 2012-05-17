@@ -46,6 +46,9 @@ typedef void (^GAScriptBlock)(NSArray *);
 
 + (id)scriptBlockWithBlock:(GAScriptBlock)block;
 
+// Designated Initializer
+- (id)initWithBlock:(GAScriptBlock)block hash:(NSString *)blockHash;
+
 - (id)initWithBlock:(GAScriptBlock)block;
 
 @end

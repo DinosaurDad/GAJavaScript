@@ -152,10 +152,11 @@ typedef struct /* GAScriptObjectEnumState */
 
 - (void)setFunctionForKey:(NSString *)key withBlock:(void(^)(NSArray* arguments))block
 {
-    GAScriptBlockObject* theBlock = [[GAScriptBlockObject alloc] initWithBlock:block];
-    
+    NSString *blockHash = [NSString stringWithFormat:@"%@.%@", m_objReference, key];
+    GAScriptBlockObject* theBlock = [[GAScriptBlockObject alloc] initWithBlock:block hash:blockHash];
+
     [self setValue:theBlock forKey:key];
-    
+
     // Save the block object so that we can keep the block alive while this object is used.
     // The block might be stack-based, which would likely go out-of-scope before the callback
     // is received.

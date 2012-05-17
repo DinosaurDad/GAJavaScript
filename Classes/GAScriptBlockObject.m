@@ -39,15 +39,21 @@
     return [[[GAScriptBlockObject alloc] initWithBlock:block] autorelease];
 }
 
-- (id)initWithBlock:(GAScriptBlock)block
+- (id)initWithBlock:(GAScriptBlock)block hash:(NSString *)blockHash
 {
     if ((self = [super init]))
     {
         m_block = [block copy];
-        m_blockId = [[NSString alloc] initWithFormat:@"block-%u", [self hash]];
+        m_blockId = [[NSString alloc] initWithFormat:@"block-%u", blockHash];
     }
     
     return self;
+}
+
+- (id)initWithBlock:(GAScriptBlock)block
+{
+  [self initWithBlock:block hash:[self hash]];
+  return self;
 }
 
 - (void)dealloc
