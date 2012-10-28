@@ -52,7 +52,7 @@
 
 - (id)initWithBlock:(GAScriptBlock)block
 {
-  [self initWithBlock:block hash:[self hash]];
+  self = [self initWithBlock:block hash:[NSString stringWithFormat:@"%d",[self hash]]];
   return self;
 }
 
@@ -71,7 +71,7 @@
 - (NSString *)stringForJavaScript
 {	
     NSAssert(m_block, @"Block for callback cannot be NULL!");
-    GADebugStr(@"ScriptBlockObject: GAJavaScript.invocation('%@')", m_blockId);
+    //GADebugStr(@"ScriptBlockObject: GAJavaScript.invocation('%@')", m_blockId);
     
 	return [NSString stringWithFormat:@"GAJavaScript.invocation('%@')", m_blockId];	
 }
