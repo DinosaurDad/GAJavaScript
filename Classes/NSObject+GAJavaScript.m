@@ -42,6 +42,9 @@
 	for (unsigned int i = 0; i < numProps; i++)
 	{
 		const char* propName = property_getName(propList[i]);
+    if (strncmp(propName, "_mapkit_CL", 10) == 0) {
+      continue;
+    }
 		id propValue = [self valueForKey:[NSString stringWithCString:propName encoding:NSASCIIStringEncoding]];
 		
         if (propValue == self)  // To prevent endless recursion, check for property values that are us!
