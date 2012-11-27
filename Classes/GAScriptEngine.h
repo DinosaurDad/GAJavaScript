@@ -117,4 +117,10 @@ extern NSString* const GAJavaScriptErrorLine;
  */
 - (id)evalWithFormat:(NSString *)script, ...;
 
+/*
+ * Sets the NSLocale to be used by NSNumberFormatter referenced by kNumFormatter when
+ * converting script results to NSNumbers.
+ */
+- (void)setNumberFormatterLocale:(NSLocale *)locale;
+
 @end

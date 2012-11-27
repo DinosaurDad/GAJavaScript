@@ -164,6 +164,13 @@ NSString* const GAJavaScriptErrorLine   = @"JSErrorLine";
     return [self convertScriptResult:result];
 }
 
+
+- (void)setNumberFormatterLocale:(NSLocale *)locale
+{
+  [kNumFormatter setLocale:locale];
+}
+
+
 /**
  * Call functions at global (window) scope.
  */
